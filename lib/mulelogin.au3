@@ -51,7 +51,10 @@ Func _length($string)
         $binlength &= Mod($declength,2)
         $declength = Floor($declength/2)
     WEnd
-	$binlength = _StringReverse($binlength)
+	$binlength = StringReverse($binlength)
+	if @error <> 0 Then
+		$binlength = _StringReverse($binlength)
+	EndIf
 	$binlength = $binlength & "1"
 	$array = StringSplit($binlength,"")
 	For $i = 1 To $array[0]
@@ -99,15 +102,30 @@ $password = $data[2]
 
 _build()
 
-$path = @AppDataDir & "\Macromedia\Flash Player\#SharedObjects\"
-$search = FileFindFirstFile($path & "*")
-$path &= FileFindNextFile($search) & "\www.realmofthemadgod.com\RotMG.sol"
+Local $paths_base[2] = [ _
+	@AppDataDir & "\Macromedia\Flash Player\#SharedObjects\", _
+	_PathFull("../Local", @AppDataDir) & "\Google\Chrome\User Data\Default\Pepper Data\Shockwave Flash\WritableRoot\#SharedObjects\" _
+]
+Local $paths[3] = [ _
+	"localhost", _
+	"realmofthemadgodhrd.appspot.com", _
+	"www.realmofthemadgod.com" _
+]
+For $path_base In $paths_base
+	$search = FileFindFirstFile($path_base & "*")
+	$searchPath = FileFindNextFile($search)
+	For $gameDir In $paths
+		$gameFilePath = $path_base & $searchPath & "\" & $gameDir & "\RotMG.sol"
+		$file = FileOpen($gameFilePath,26)
+		FileWrite($file,$string)
+		FileClose($file)
+	Next
+Next
 FileClose($search)
-$file = FileOpen($path,18)
-FileWrite($file,$string)
-FileClose($file)
 
 ShellExecute("http://www.realmofthemadgod.com/")
 ; replace the line above if you're using a projector
 ; for example, with totalcmd + swfview
 ;ShellExecute('C:\Program Files\Total Commander\Totalcmd.exe', '/S=L:Pswfview e:\temp\rotmg\loader.swf')
+; or to open the latest swf with the Adobe Flash Projector
+;ShellExecute('C:\flashplayer_16_sa.exe', 'https://realmofthemadgodhrd.appspot.com/AssembleeGameClient'&BinaryToString(InetRead("http://www.realmofthemadgod.com/version.txt"))&'.swf')

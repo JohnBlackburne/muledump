@@ -1,3 +1,72 @@
+**2015-09-22** version 0.6.3
+
+- consumables are now sorted by type (thanks to Pfiffel & Nightfirecat)
+- further improvements to the one-click login script (thanks to Nightfirecat)
+- now you can add your steam account... but nobody knows how
+- a new item??? (27.7.0)
+
+**2015-04-25** version 0.6.2
+
+- one-click login now writes to both possible locations of the flash cookie
+- fixed display of the one-click login links
+
+**2015-02-22** version 0.6.1
+
+- 27.3.1 items
+- show all errors at the top of the page (as before)
+
+**2015-01-27** version 0.6.0
+
+- automated migration
+- better user experience when mass-reloading
+- hopefully will show more info in case of errors
+
+**2015-01-18** version 0.5.1
+
+- fixed cache not updating
+
+**2015-01-17** version 0.5.0
+
+- 27.3.0 items
+- proper "migration required" warning
+- automated ToS accept and age verification
+- fixed PNG export (imgur)
+- internal: moved stuff around, might break things
+- internal: updated jquery
+
+**2014-10-22** version 0.4.26
+
+- 25.0 items
+
+**2014-09-22** version 0.4.25
+
+- 23.2 items
+
+**2014-07-01** version 0.4.24
+
+- 22.3 items
+- one-click login script fix for latest version of AutoIt ([Nightfirecat](https://github.com/Nightfirecat))
+
+**2014-06-09** version 0.4.22
+
+- 21.4 items
+
+really sorry for lack of updates recently :/
+
+
+**2014-03-24** version 0.4.21
+
+- 19.5 items
+
+**2014-03-01** version 0.4.20
+
+- gift chests option
+- artemis skin
+
+**2014-02-21** version 0.4.19
+
+- 19.2 items
+
 **2013-12-19** version 0.4.18
 
 - 19.0 items

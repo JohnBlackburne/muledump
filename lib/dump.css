@@ -66,32 +66,24 @@ body {
 #export { width: auto; text-align: center; }
 #export div { padding: 0 5px; }
 
-#errors, #totals, .mule, .guid, .reload, .item { display: inline-block; }
-
-#errors, #totals {
-	margin: 10px 3px;
-	border: solid 2px #555;
-}
-
-#errors { background-color: #503636; font-size: 13px; }
-#errors:empty { display: none; }
-.error {
-	color: #eaa;
-	margin: 6px 8px;
-	line-height: 1.5em;
-	overflow: hidden;
-}
-.error span {
-	margin-left: 1em;
-	color: #ddd;
-	cursor: pointer;
-}
+#totals, .mule, .guid, .reload, .item { display: inline-block; }
 
 #totals {
+	margin: 10px 3px;
+	border: solid 2px #555;
 	line-height: 0;
 	max-width: 528px;
 	padding: 5px;
 }
+
+#errors {
+	color: pink;
+	display: inline-block;
+	font: 16px/28px sans-serif;
+	max-width: 600px;
+}
+
+#errors:empty { display: none; }
 
 .mule {
 	padding: 2px;
@@ -118,17 +110,20 @@ body {
 	overflow: hidden;
 }
 
-.reload, .mulelink, .warn {
-	line-height: 2em;
-	cursor: pointer;
-	color: white;
-	font-size: 16px;
-	line-height: 1em;
-	margin: 5px 4px 0 0;
+.button {
+	display: inline-block;
 	float: right;
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 16px;
+	color: white;
+	background-color: #545454;
+	cursor: pointer;
 	overflow: hidden;
-}
-.mulelink {
+	margin: 4px 2px;
 	text-decoration: none;
 }
 
@@ -301,14 +296,14 @@ td.cont > div {
 	display: inline-block;
 }
 
-.giftchest > td > div > div {
+.giftchest .itemsc {
 	background-color: #8b4513;
 	margin-left: 0;
 	margin-right: 0;
 	padding: 2px;
 }
 
-.giftchest > td > div > div > .item {
+.giftchest .item {
 	background-color: #daa520;
 }
 
@@ -330,4 +325,30 @@ td.cont > div {
 
 .warn {
 	color: #d70;
+}
+
+/* overlay + log */
+
+.overlay {
+	top: 0px;
+	bottom: 0px;
+	position: absolute;
+	right: 0px;
+	left: 0px;
+	background-color: rgba(0, 0, 0, 0.7);
+	overflow: hidden;
+	padding: 2px;
+}
+
+.log {
+	font: 12px monospace;
+	position: absolute;
+	right: 5px;
+	left: 5px;
+	bottom: 5px;
+	margin: 0px;
+}
+
+.line.error {
+	color: #eaa;
 }
